@@ -4,9 +4,11 @@ import { DashboardPage } from "@/pages/DashboardPage"
 import { ExamDatePage } from "@/pages/ExamDatePage"
 import { SettingsPage } from "@/pages/SettingsPage"
 
+const routerBasename = import.meta.env.BASE_URL.replace(/\/$/, "")
+
 const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={routerBasename || undefined}>
       <Switch>
         <Route exact path="/" component={DashboardPage} />
         <Route path="/exam/:date" component={ExamDatePage} />
