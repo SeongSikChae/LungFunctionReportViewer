@@ -11,17 +11,17 @@ npm run dev
 
 ## GitHub Pages 배포
 
-이 저장소는 `main` 브랜치에 push되면 GitHub Actions로 자동 배포됩니다.
+`main` 브랜치에 push하면 GitHub Actions가 빌드 후 `gh-pages` 브랜치에 배포합니다.
 
 ### 최초 1회 설정 (필수)
 
-`deploy-pages` 단계에서 `404 Not Found`가 나면 **Pages가 아직 활성화되지 않은 상태**입니다. 아래 순서를 먼저 진행하세요.
-
 1. [저장소 Pages 설정](https://github.com/SeongSikChae/LungFunctionReportViewer/settings/pages)으로 이동
-2. **Build and deployment** → **Source**를 **Deploy from a branch**가 아닌 **GitHub Actions**로 변경
-3. **Actions** 탭 → **Deploy to GitHub Pages** 워크플로 → **Re-run all jobs** (또는 `main`에 다시 push)
+2. **Build and deployment** → **Source**를 **Deploy from a branch**로 선택
+3. **Branch**를 `gh-pages` / **/(root)** 로 선택 후 **Save**
+4. **Actions** 탭에서 **Deploy to GitHub Pages** 워크플로가 완료될 때까지 대기 (1~2분)
 
-> 빌드(job `build`)는 성공하고 배포(job `deploy`)만 실패했다면, 위 1~2번 설정이 빠진 경우가 대부분입니다.
+> `gh-pages` 브랜치는 첫 배포 워크플로가 성공한 뒤에 생성됩니다.  
+> 워크플로 실행 전에는 브랜치 목록에 `gh-pages`가 보이지 않을 수 있습니다.
 
 ### 접속 URL
 
