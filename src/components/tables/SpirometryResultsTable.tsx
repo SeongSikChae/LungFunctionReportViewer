@@ -29,6 +29,7 @@ function formatNumber(value: number): string {
 }
 
 function ChangeCell({ value }: { value: number }) {
+  const formatted = formatNumber(value)
   return (
     <span
       className={cn(
@@ -37,7 +38,7 @@ function ChangeCell({ value }: { value: number }) {
         value < 0 && "text-red-700"
       )}
     >
-      {value > 0 ? `+${value}` : value}
+      {value > 0 ? `+${formatted}` : formatted}
     </span>
   )
 }
@@ -92,13 +93,13 @@ export const SpirometryResultsTable: React.FC<Props> = ({ examDate }) => {
                   {formatNumber(row.pre_meas)}
                 </TableCell>
                 <TableCell className="text-right tabular-nums">
-                  {row["pre % pred"]}
+                  {formatNumber(row["pre % pred"])}
                 </TableCell>
                 <TableCell className="text-right tabular-nums">
                   {formatNumber(row.post_meas)}
                 </TableCell>
                 <TableCell className="text-right tabular-nums">
-                  {row["post % pred"]}
+                  {formatNumber(row["post % pred"])}
                 </TableCell>
                 <TableCell className="text-right">
                   <ChangeCell value={row["% change"]} />

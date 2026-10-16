@@ -32,12 +32,12 @@ export function calculateFev1OverFvcRatio(fev1: number, fvc: number): number {
 
 export function calculatePrePercentPred(pred: number, pre_meas: number): number {
   if (pred === 0) return 0
-  return Math.round((pre_meas / pred) * 100)
+  return Math.round((pre_meas / pred) * 10000) / 100
 }
 
 export function calculatePostPercentPred(pred: number, post_meas: number): number {
   if (pred === 0) return 0
-  return Math.round((post_meas / pred) * 100)
+  return Math.round((post_meas / pred) * 10000) / 100
 }
 
 export function calculatePercentChange(
@@ -46,7 +46,7 @@ export function calculatePercentChange(
 ): number {
   if (pre_meas === 0) return 0
   const value = ((post_meas - pre_meas) / pre_meas) * 100
-  return Math.round(value * 10) / 10
+  return Math.round(value * 100) / 100
 }
 
 function findMetric(

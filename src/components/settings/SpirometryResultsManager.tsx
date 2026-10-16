@@ -221,11 +221,15 @@ function MetricForm({
       <div className="grid gap-3 rounded-lg border bg-muted/30 p-4 md:grid-cols-3">
         <div className="text-sm">
           <p className="text-muted-foreground">기관지 확장제 전 예측값 대비 비율</p>
-          <p className="mt-1 font-medium tabular-nums">{calculated.prePercentPred}%</p>
+          <p className="mt-1 font-medium tabular-nums">
+            {formatNumber(calculated.prePercentPred)}%
+          </p>
         </div>
         <div className="text-sm">
           <p className="text-muted-foreground">기관지 확장제 후 예측값 대비 비율</p>
-          <p className="mt-1 font-medium tabular-nums">{calculated.postPercentPred}%</p>
+          <p className="mt-1 font-medium tabular-nums">
+            {formatNumber(calculated.postPercentPred)}%
+          </p>
         </div>
         <div className="text-sm">
           <p className="text-muted-foreground">기관지 확장제 후 변동 비율</p>
@@ -237,8 +241,8 @@ function MetricForm({
             )}
           >
             {calculated.percentChange > 0
-              ? `+${calculated.percentChange}`
-              : calculated.percentChange}
+              ? `+${formatNumber(calculated.percentChange)}`
+              : formatNumber(calculated.percentChange)}
             %
           </p>
         </div>
@@ -537,13 +541,13 @@ export const SpirometryResultsManager: React.FC = () => {
                           {formatNumber(metric.pre_meas)}
                         </TableCell>
                         <TableCell className="text-right tabular-nums">
-                          {metric["pre % pred"]}
+                          {formatNumber(metric["pre % pred"])}
                         </TableCell>
                         <TableCell className="text-right tabular-nums">
                           {formatNumber(metric.post_meas)}
                         </TableCell>
                         <TableCell className="text-right tabular-nums">
-                          {metric["post % pred"]}
+                          {formatNumber(metric["post % pred"])}
                         </TableCell>
                         <TableCell
                           className={cn(
@@ -553,8 +557,8 @@ export const SpirometryResultsManager: React.FC = () => {
                           )}
                         >
                           {metric["% change"] > 0
-                            ? `+${metric["% change"]}`
-                            : metric["% change"]}
+                            ? `+${formatNumber(metric["% change"])}`
+                            : formatNumber(metric["% change"])}
                         </TableCell>
                         <TableCell className="text-right">
                           <div className="flex justify-end gap-2">
