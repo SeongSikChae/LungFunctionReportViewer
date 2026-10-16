@@ -27,7 +27,7 @@ export interface SpirometryMetricInput {
 
 export function calculateFev1OverFvcRatio(fev1: number, fvc: number): number {
   if (fvc === 0) return 0
-  return Math.round((fev1 / fvc) * 1000) / 10
+  return Math.round((fev1 / fvc) * 10000) / 100
 }
 
 export function calculatePrePercentPred(pred: number, pre_meas: number): number {
